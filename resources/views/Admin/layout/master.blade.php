@@ -18,7 +18,9 @@
         <div id="content" class="main-content">
             <div class="layout-px-spacing">
 
-                    @include('admin.layout.footer')
+                @yield('content')
+
+                @include('admin.layout.footer')
             </div>
         </div>
 
