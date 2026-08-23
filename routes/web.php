@@ -9,5 +9,6 @@ Route::get('panel', function () {
 Route::prefix('account')->group(function () {
     Route::prefix('category')->group(function () {
         Route::get('create',[ctegorycontroller::class,'CreateCategory'])->name('account.category.create');
+        Route::post('create',[ctegorycontroller::class,'StoreCategory'])->name('account.category.Store');
     });
 });
