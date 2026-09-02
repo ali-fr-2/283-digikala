@@ -4,12 +4,13 @@
 @section('content')
     <div class="col-lg-12 col-12 layout-spacing">
         <div class="statbox widget box box-shadow"">
-            <form action="{{ route('account.category.Store') }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('account.category.Store') }}" method="POST" enctype="multipart/form-data" id="my-form">
                 @csrf
                 <div class="row mb-4">
                     <div class="col">
                         <label for="name_id" class="d-block">نام دسته بندی </label>
-                        <input name="name" id="name_id" type="text" class="form-control" placeholder="نام دسته بندی ">
+                        <input name="name" id="name_id" type="text" class="form-control"
+                            placeholder="نام دسته بندی ">
                     </div>
                     <div class="col">
                         <label for="image_id" class="d-block">بارگذاری تصویر </label>
@@ -22,4 +23,14 @@
             </form>
         </div>
     </div>
+@endsection
+
+
+@section('jsvalidation')
+<!-- Scripts -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/js/bootstrap.min.js"></script>
+<!-- Laravel Javascript Validation -->
+<script type="text/javascript" src="{{ asset('vendor/jsvalidation/js/jsvalidation.js') }}"></script>
+{!! JsValidator::formRequest('App\Http\Requests\Admin\CategoryRequest', '#my-form') !!}
 @endsection
