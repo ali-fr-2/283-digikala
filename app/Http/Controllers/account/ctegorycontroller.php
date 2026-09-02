@@ -19,6 +19,13 @@ class ctegorycontroller extends Controller
         $dataform['image']=$imageName;
 
         category::create($dataform);
-        return redirect()->route('account.category.create');
+        return redirect()->route('account.category.categories');
+    }
+
+    public function Categories(){
+
+        $categories=category::all();
+
+        return view('admin.category.category',compact('categories'));
     }
 }
