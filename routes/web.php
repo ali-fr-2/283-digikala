@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\account\ctegorycontroller;
+use App\Http\Controllers\account\productcontroller;
 
 Route::get('panel', function () {
     return view('Admin.index');
@@ -18,5 +19,9 @@ Route::prefix('account')->group(function () {
 
         Route::get('delete/{id}',[ctegorycontroller::class,'Delete'])->name('account.category.Delete');
 
+    });
+
+    Route::prefix('product')->group(function(){
+        Route::get('create',[productcontroller::class,'create'])->name('account.product.create');
     });
 });
