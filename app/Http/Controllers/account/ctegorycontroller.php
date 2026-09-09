@@ -5,6 +5,7 @@ namespace App\Http\Controllers\account;
 use App\Http\Controllers\Controller;
 use App\Models\category;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class ctegorycontroller extends Controller
 {
@@ -19,6 +20,7 @@ class ctegorycontroller extends Controller
         $dataform['image']=$imageName;
 
         category::create($dataform);
+        alert()->success('موفق!', 'عملیات با موفقیت انجام شد');
         return redirect()->route('account.category.categories');
     }
 

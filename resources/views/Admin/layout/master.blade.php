@@ -25,6 +25,7 @@
         </div>
 
         @include('admin.layout.js')
+        @include('sweetalert::alert')
     </div>
 
 </body>
