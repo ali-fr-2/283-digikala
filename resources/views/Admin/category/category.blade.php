@@ -45,8 +45,9 @@
                                                         شده</span></td>
                                                 <td class="text-center">
                                                     <ul class="table-controls">
-                                                        <li><a href="{{ route('account.category.Edit',$category->id) }}" class="bs-tooltip"
-                                                                data-toggle="tooltip" data-placement="top" title=""
+                                                        <li><a href="{{ route('account.category.Edit', $category->id) }}"
+                                                                class="bs-tooltip" data-toggle="tooltip"
+                                                                data-placement="top" title=""
                                                                 data-original-title="ویرایش"><svg
                                                                     xmlns="http://www.w3.org/2000/svg" width="24"
                                                                     height="24" viewBox="0 0 24 24" fill="none"
@@ -57,8 +58,9 @@
                                                                         d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z">
                                                                     </path>
                                                                 </svg></a></li>
-                                                        <li><a href="javascript:void(0);" class="bs-tooltip"
-                                                                data-toggle="tooltip" data-placement="top" title=""
+                                                        <li><a href="{{ route('account.category.Delete', $category->id) }}"
+                                                                class="bs-tooltip" data-toggle="tooltip"
+                                                                data-placement="top" title=""
                                                                 data-original-title="حذف"><svg
                                                                     xmlns="http://www.w3.org/2000/svg" width="24"
                                                                     height="24" viewBox="0 0 24 24" fill="none"

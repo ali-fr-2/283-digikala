@@ -15,5 +15,8 @@ Route::prefix('account')->group(function () {
 
         Route::get('edit/{id}',[ctegorycontroller::class,'Edit'])->name('account.category.Edit');
         Route::post('edit/{id}',[ctegorycontroller::class,'Update'])->name('account.category.Update');
+
+        Route::get('delete/{id}',[ctegorycontroller::class,'Delete'])->name('account.category.Delete');
+
     });
 });
