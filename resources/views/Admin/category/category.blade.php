@@ -28,16 +28,16 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($categories as $categorie)
+                                        @foreach ($categories as $category)
                                             <tr>
 
 
-                                                <td>{{ $categorie->name }}</td>
-                                                <td>{{ $categorie->created_at }}</td>
+                                                <td>{{ $category->name }}</td>
+                                                <td>{{ $category->created_at }}</td>
                                                 <td class="checkbox-column text-center"> 1 </td>
                                                 <td class="text-center">
                                                     <span><img
-                                                            src="{{ asset('AdminAssets/category-image/' . $categorie->image) }}"
+                                                            src="{{ asset('AdminAssets/category-image/' . $category->image) }}"
                                                             class="profile-img" alt="avatar" style="width: 60px"></span>
                                                 </td>
 
@@ -45,7 +45,7 @@
                                                         شده</span></td>
                                                 <td class="text-center">
                                                     <ul class="table-controls">
-                                                        <li><a href="javascript:void(0);" class="bs-tooltip"
+                                                        <li><a href="{{ route('account.category.Edit',$category->id) }}" class="bs-tooltip"
                                                                 data-toggle="tooltip" data-placement="top" title=""
                                                                 data-original-title="ویرایش"><svg
                                                                     xmlns="http://www.w3.org/2000/svg" width="24"
