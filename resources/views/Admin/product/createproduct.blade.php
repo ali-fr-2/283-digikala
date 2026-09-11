@@ -5,51 +5,56 @@
 
     <div class="col-lg-12 col-12 layout-spacing">
         <div class="statbox widget box box-shadow"">
-            <form id="my-product">
-                <div class=" form-row mb-4">
-            <div class="form-group col-md-6">
-                <label for="inputname4">نام محصول</label>
-                <input type="text" name="name" class="form-control" id="inputname4" placeholder="نام محصول">
+                        <form id=" my-product">
+
+
+            <div class=" form-row mb-4">
+                <div class="form-group col-md-6">
+                    <label for="inputname4">نام محصول</label>
+                    <input type="text" name="name" class="form-control" id="inputname4" placeholder="نام محصول">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="inputprice4">قیمت محصول </label>
+                    <input type="text" name="price" class="form-control" id="inputprice4" placeholder="قیمت محصول ">
+                </div>
             </div>
-            <div class="form-group col-md-6">
-                <label for="inputprice4">قیمت محصول </label>
-                <input type="text" name="price" class="form-control" id="inputprice4" placeholder="قیمت محصول ">
+            <div class="form-row mb-4">
+                <div class="form-group col-md-6">
+                    <label for="inventory"> تعداد موجودی</label>
+                    <input type="number" name="inventory" class="form-control" id="inventory" placeholder=" تعداد موجودی">
+                </div>
+                <div class="form-group col-md-6">
+
+                    <label for="category">دسته بندی محصولات </label>
+                    <select class="selectpicker form-control p-2" name="id_category">
+                        @foreach ($categories as $category)
+                            <option value="{{ $category->id }}">{{ $category->name }}</option>
+                        @endforeach
+                    </select>
+
+                </div>
             </div>
-        </div>
-        <div class="form-row mb-4">
-            <div class="form-group col-md-6">
-                <label for="inventory"> تعداد موجودی</label>
-                <input type="number" name="number" class="form-control" id="inventory" placeholder=" تعداد موجودی">
+
+
+            <div class="form-row mb-4">
+                <label for="inputState">توضیحات محصول</label>
+
+                <textarea type="text" name="description" class="form-control" id="inputCity"></textarea>
+
+
             </div>
-            <div class="form-group col-md-6">
-                <label for="category">دسته بندی محصولات </label>
-                <select class="selectpicker form-control p-2" name="category" >
-                    <option>لورم</option>
-                    <option>لورم</option>
-                    <option>لورم</option>
-                </select>
+
+            <div class="form-row mb-4">
+                <label for="image_id" class="d-block">بارگذاری تصویر </label>
+
+                <input name="image" type="file" class="form-control" id="image_id" placeholder="">
+
             </div>
+
+            <button type="submit" class="btn btn-primary mt-3">افزودن محصول</button>
+
+            </form>
         </div>
-
-
-        <div class="form-row mb-4">
-            <label for="inputState">توضیحات محصول</label>
-
-            <textarea type="text" name="description" class="form-control" id="inputCity"></textarea>
-
-
-        </div>
-
-        <div class="form-row mb-4">
-            <label for="image_id" class="d-block">بارگذاری تصویر </label>
-
-            <input name="image" type="file" class="form-control" id="image_id" placeholder="">
-
-        </div>
-
-        <button type="submit" class="btn btn-primary mt-3">افزودن محصول</button>
-        </form>
-    </div>
     </div>
 
 @endsection
