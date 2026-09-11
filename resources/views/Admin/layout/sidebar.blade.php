@@ -53,7 +53,7 @@
                         <a href="{{ route('account.product.create') }}"> اضافه کردن محصول </a>
                     </li>
                     <li>
-                        <a href=""> لیست محصولات</a>
+                        <a href="{{ route('account.product.products') }}"> لیست محصولات</a>
                     </li>
                 </ul>
             </li>

@@ -17,7 +17,7 @@ return new class extends Migration
             $table->text('description');
             $table->integer('inventory');
             $table->bigInteger('price');
-            $table->string('status');
+            $table->smallInteger('status')->default(0);
             $table->foreignId('id_category')->constrained('categories');
             $table->text('image');
             $table->timestamps();

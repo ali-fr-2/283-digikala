@@ -5,9 +5,10 @@
 
     <div class="col-lg-12 col-12 layout-spacing">
         <div class="statbox widget box box-shadow"">
-                        <form id=" my-product">
+                 <form  method="POST" enctype="multipart/form-data"
+            action="{{ route('account.product.store') }}" id=" my-product">
 
-
+            @csrf
             <div class=" form-row mb-4">
                 <div class="form-group col-md-6">
                     <label for="inputname4">نام محصول</label>

@@ -23,5 +23,8 @@ Route::prefix('account')->group(function () {
 
     Route::prefix('product')->group(function(){
         Route::get('create',[productcontroller::class,'create'])->name('account.product.create');
+        Route::post('create',[productcontroller::class,'storeproduct'])->name('account.product.store');
+
+        Route::get('products',[productcontroller::class,'products'])->name('account.product.products');
     });
 });
