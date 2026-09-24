@@ -50,10 +50,10 @@
                 </a>
                 <ul class="collapse submenu list-unstyled show" id="dashboard" data-parent="#accordionExample">
                     <li class="active">
-                        <a href="{{ route('account.product.create') }}"> اضافه کردن محصول </a>
+                        <a href="{{ route('account.product.Create') }}"> اضافه کردن محصول </a>
                     </li>
                     <li>
-                        <a href="{{ route('account.product.products') }}"> لیست محصولات</a>
+                        <a href="{{ route('account.product.Products') }}"> لیست محصولات</a>
                     </li>
                 </ul>
             </li>

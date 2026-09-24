@@ -22,9 +22,14 @@ Route::prefix('account')->group(function () {
     });
 
     Route::prefix('product')->group(function(){
-        Route::get('create',[productcontroller::class,'create'])->name('account.product.create');
-        Route::post('create',[productcontroller::class,'storeproduct'])->name('account.product.store');
+        Route::get('create',[productcontroller::class,'Create'])->name('account.product.Create');
+        Route::post('create',[productcontroller::class,'Storeproduct'])->name('account.product.Store');
 
-        Route::get('products',[productcontroller::class,'products'])->name('account.product.products');
+        Route::get('products',[productcontroller::class,'Products'])->name('account.product.Products');
+
+        Route::get('edit/{id}',[productcontroller::class,'Edit'])->name('account.product.Edit');
+        Route::PUT('edit/{id}',[productcontroller::class,'Update'])->name('account.product.Update');
+        Route::DELETE('delete/{id}',[productcontroller::class,'Delete'])->name('account.product.Delete');
+
     });
 });
