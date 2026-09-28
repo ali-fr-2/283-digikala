@@ -142,4 +142,36 @@ class productcontroller extends Controller
             return redirect()->route('account.product.Products');
         }
     }
+
+    public function ShowImages($id){
+        $ProductImages=ProductImage::all();
+        return view('Admin.product.showimages',compact('id','ProductImages'));
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

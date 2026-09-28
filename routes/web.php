@@ -34,6 +34,9 @@ Route::prefix('account')->group(function () {
         Route::get('CreateImage/{id}',[productcontroller::class,'CreateImage'])->name('account.product.CreateImage');
         Route::POST('CreateImage/{id}',[productcontroller::class,'SaveImage'])->name('account.product.SaveImage');
 
+        Route::get('ShowImages/{id}',[productcontroller::class,'ShowImages'])->name('account.product.ShowImages');
+
+
 
     });
 });
