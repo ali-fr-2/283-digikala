@@ -55,7 +55,7 @@
                                                 <td class="text-center"><span class="shadow-none badge badge-primary">تایید
                                                         شده</span></td>
                                                 <td class="text-center">
-                                                    <ul class="table-controls">
+                                                    <ul class="table-controls d-flex">
                                                         <li><a href="{{ route('account.product.Edit', $product->id) }}"
                                                                 class="bs-tooltip" data-toggle="tooltip" data-placement="top"
                                                                 title="" data-original-title="ویرایش"><svg
@@ -69,40 +69,52 @@
                                                                     </path>
                                                                 </svg></a></li>
                                                         <li>
-    <form action="{{ route('account.product.Delete', $product->id) }}" method="POST">
-        @csrf
-        @method('DELETE')
+                                                            <form action="{{ route('account.product.Delete', $product->id) }}" method="POST">
+                                                                @csrf
+                                                                @method('DELETE')
 
-        <button type="submit"
-                class="bs-tooltip"
-                data-toggle="tooltip"
-                data-placement="top"
-                title=""
-                data-original-title="حذف"
-                style="border: none; background: none; padding: 0;">
+                                                                <button type="submit"
+                                                                        class="bs-tooltip"
+                                                                        data-toggle="tooltip"
+                                                                        data-placement="top"
+                                                                        title=""
+                                                                        data-original-title="حذف"
+                                                                        style="border: none; background: none; padding: 0;">
 
-            <svg xmlns="http://www.w3.org/2000/svg"
-                 width="24"
-                 height="24"
-                 viewBox="0 0 24 24"
-                 fill="none"
-                 stroke="currentColor"
-                 stroke-width="2"
-                 stroke-linecap="round"
-                 stroke-linejoin="round"
-                 class="feather feather-trash p-1 br-6 mb-1"
-                 style="color: white">
+                                                                    <svg xmlns="http://www.w3.org/2000/svg"
+                                                                        width="24"
+                                                                        height="24"
+                                                                        viewBox="0 0 24 24"
+                                                                        fill="none"
+                                                                        stroke="currentColor"
+                                                                        stroke-width="2"
+                                                                        stroke-linecap="round"
+                                                                        stroke-linejoin="round"
+                                                                        class="feather feather-trash p-1 br-6 mb-1"
+                                                                        style="color: white">
 
-                <polyline points="3 6 5 6 21 6"></polyline>
+                                                                        <polyline points="3 6 5 6 21 6"></polyline>
 
-                <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2">
-                </path>
+                                                                        <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2">
+                                                                        </path>
 
-            </svg>
+                                                                    </svg>
 
-        </button>
-    </form>
-</li>
+                                                                </button>
+                                                            </form>
+                                                        </li>
+                                                            <li><a href="{{ route('account.product.CreateImage', $product->id) }}"
+                                                                class="bs-tooltip" data-toggle="tooltip" data-placement="top"
+                                                                title="" data-original-title="افزودن تصویر"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="size-5">
+                                                                <path fill-rule="evenodd" d="M1 5.25A2.25 2.25 0 0 1 3.25 3h13.5A2.25 2.25 0 0 1 19 5.25v9.5A2.25 2.25 0 0 1 16.75 17H3.25A2.25 2.25 0 0 1 1 14.75v-9.5Zm1.5 5.81v3.69c0 .414.336.75.75.75h13.5a.75.75 0 0 0 .75-.75v-2.69l-2.22-2.219a.75.75 0 0 0-1.06 0l-1.91 1.909.47.47a.75.75 0 1 1-1.06 1.06L6.53 8.091a.75.75 0 0 0-1.06 0l-2.97 2.97ZM12 7a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z" clip-rule="evenodd" />
+                                                                </svg>
+                                                                </a></li>
+                                                                <li><a href=""
+                                                                class="bs-tooltip" data-toggle="tooltip" data-placement="top"
+                                                                title="" data-original-title="تصاویر "><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="size-5">
+                                                                <path fill-rule="evenodd" d="M1 5.25A2.25 2.25 0 0 1 3.25 3h13.5A2.25 2.25 0 0 1 19 5.25v9.5A2.25 2.25 0 0 1 16.75 17H3.25A2.25 2.25 0 0 1 1 14.75v-9.5Zm1.5 5.81v3.69c0 .414.336.75.75.75h13.5a.75.75 0 0 0 .75-.75v-2.69l-2.22-2.219a.75.75 0 0 0-1.06 0l-1.91 1.909.47.47a.75.75 0 1 1-1.06 1.06L6.53 8.091a.75.75 0 0 0-1.06 0l-2.97 2.97ZM12 7a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z" clip-rule="evenodd" />
+                                                                </svg>
+                                                                </a></li>
                                                     </ul>
                                                 </td>
                                             </tr>

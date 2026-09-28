@@ -116,4 +116,12 @@ class productcontroller extends Controller
 
         return redirect()->route('account.product.Products');
     }
+
+    //CreateImage
+
+        public function CreateImage($id)
+    {
+        return view('admin.product.createimage');
+    }
+
 }
