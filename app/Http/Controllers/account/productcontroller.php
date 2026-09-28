@@ -143,35 +143,27 @@ class productcontroller extends Controller
         }
     }
 
-    public function ShowImages($id){
-        $ProductImages=ProductImage::all();
-        return view('Admin.product.showimages',compact('id','ProductImages'));
+    public function ShowImages($id)
+    {
+        $ProductImages = ProductImage::all();
+        return view('Admin.product.showimages', compact('id', 'ProductImages'));
+    }
+    public function DeleteImage($id)
+    {
+        $productimage = ProductImage::find($id);
+
+        $previouspicture = public_path(
+            "AdminAssets/product-image/" . $productimage->images
+        );
+
+        if (File::exists($previouspicture)) {
+            File::delete($previouspicture);
+        }
+
+        $productimage->delete();
+
+        alert()->success('موفق!', 'محصول با موفقیت حذف شد');
+
+        return redirect()->route('account.product.Products');
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
