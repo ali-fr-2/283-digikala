@@ -5,6 +5,7 @@ namespace App\Http\Controllers\account;
 use App\Http\Controllers\Controller;
 use App\Models\category;
 use App\Models\product;
+use App\Models\ProductImage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 
@@ -119,9 +120,26 @@ class productcontroller extends Controller
 
     //CreateImage
 
-        public function CreateImage($id)
+    public function CreateImage($id)
     {
-        return view('admin.product.createimage');
+        return view('admin.product.createimage', compact('id'));
     }
+    public function SaveImage(Request $request, $id)
+    {
+        if ($request->hasFile('image')) {
 
+            $imageName = random_int(1000000, 9999999) . '.' . $request->image->extension();
+
+            $request->image->move(
+                public_path("AdminAssets/product-image"),
+                $imageName
+            );
+
+            $dataform['images'] = $imageName;
+            $dataform['id_product'] = $id;
+
+            ProductImage::create($dataform);
+            return redirect()->route('account.product.Products');
+        }
+    }
 }

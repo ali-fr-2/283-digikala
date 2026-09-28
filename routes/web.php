@@ -32,6 +32,7 @@ Route::prefix('account')->group(function () {
         Route::DELETE('delete/{id}',[productcontroller::class,'Delete'])->name('account.product.Delete');
 
         Route::get('CreateImage/{id}',[productcontroller::class,'CreateImage'])->name('account.product.CreateImage');
+        Route::POST('CreateImage/{id}',[productcontroller::class,'SaveImage'])->name('account.product.SaveImage');
 
 
     });

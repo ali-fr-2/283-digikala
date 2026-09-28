@@ -4,7 +4,7 @@
 @section('content')
     <div class="col-lg-12 col-12 layout-spacing">
         <div class="statbox widget box box-shadow"">
-                <form action="" method="POST" enctype="multipart/form-data"
+                <form action="{{ route('account.product.SaveImage', $id) }}" method="POST" enctype="multipart/form-data"
             id="my-form">
             @csrf
             <div class="row mb-4">
