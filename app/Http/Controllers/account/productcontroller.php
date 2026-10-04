@@ -5,6 +5,7 @@ namespace App\Http\Controllers\account;
 use App\Http\Controllers\Controller;
 use App\Models\category;
 use App\Models\product;
+use App\Models\productcolors;
 use App\Models\ProductImage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
@@ -118,7 +119,7 @@ class productcontroller extends Controller
         return redirect()->route('account.product.Products');
     }
 
-    //CreateImage
+    //Image
 
     public function CreateImage($id)
     {
@@ -161,6 +162,39 @@ class productcontroller extends Controller
         }
 
         $productimage->delete();
+
+        alert()->success('موفق!', 'محصول با موفقیت حذف شد');
+
+        return redirect()->route('account.product.Products');
+    }
+
+    //color
+    public function CreateColor($id)
+    {
+        return view('Admin.product.CreateColor', compact('id'));
+    }
+
+    public function StoreColor(Request $request, $id)
+    {
+        $dataform = $request->all();
+        $dataform['id_product'] = $id;
+
+        productcolors::create($dataform);
+
+        return redirect()->route('account.product.Products');
+    }
+
+    public function Colors($id)
+    {
+        $productcolors = productcolors::all();
+        return view('Admin.product.Colors', compact('id', 'productcolors'));
+    }
+
+    public function DeleteColor($id)
+    {
+        $productcolor = productcolors::find($id);
+
+        $productcolor->delete();
 
         alert()->success('موفق!', 'محصول با موفقیت حذف شد');
 

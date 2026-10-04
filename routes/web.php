@@ -30,10 +30,19 @@ Route::prefix('account')->group(function () {
         Route::PUT('edit/{id}', [productcontroller::class, 'Update'])->name('account.product.Update');
         Route::DELETE('delete/{id}', [productcontroller::class, 'Delete'])->name('account.product.Delete');
 
+        //image
         Route::get('CreateImage/{id}', [productcontroller::class, 'CreateImage'])->name('account.product.CreateImage');
         Route::POST('CreateImage/{id}', [productcontroller::class, 'SaveImage'])->name('account.product.SaveImage');
 
         Route::get('ShowImages/{id}', [productcontroller::class, 'ShowImages'])->name('account.product.ShowImages');
         Route::DELETE('DeleteImage/{id}', [productcontroller::class, 'DeleteImage'])->name('account.product.DeleteImage');
+
+        //color
+        Route::get('CreateColor/{id}', [productcontroller::class, 'CreateColor'])->name('account.product.CreateColor');
+        Route::POST('CreateColor/{id}', [productcontroller::class, 'StoreColor'])->name('account.product.StoreColor');
+
+        Route::get('Colors/{id}', [productcontroller::class, 'Colors'])->name('account.product.Colors');
+        Route::DELETE('DeleteColor/{id}', [productcontroller::class, 'DeleteColor'])->name('account.product.DeleteColor');
+
     });
 });
