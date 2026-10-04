@@ -4,6 +4,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\account\ctegorycontroller;
 use App\Http\Controllers\account\productcontroller;
 
+Route::get('/', function(){
+    return view('Home.index');
+});
+
 Route::get('panel', function () {
     return view('Admin.index');
 });
