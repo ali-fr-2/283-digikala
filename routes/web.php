@@ -3,9 +3,14 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\account\ctegorycontroller;
 use App\Http\Controllers\account\productcontroller;
+use App\Http\Controllers\Home\HomeController;
 
-Route::get('/', function(){
-    return view('Home.index');
+// Route::get('/', function () {
+//     return view('Home.index');
+// });
+
+Route::namespace('Home')->group(function () {
+    Route::get('/', [HomeController::class, 'Home'])->name('Home');
 });
 
 Route::get('panel', function () {
@@ -47,6 +52,5 @@ Route::prefix('account')->group(function () {
 
         Route::get('Colors/{id}', [productcontroller::class, 'Colors'])->name('account.product.Colors');
         Route::DELETE('DeleteColor/{id}', [productcontroller::class, 'DeleteColor'])->name('account.product.DeleteColor');
-
     });
 });

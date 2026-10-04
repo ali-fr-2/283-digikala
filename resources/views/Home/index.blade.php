@@ -828,112 +828,28 @@
                             <p>کالای دیجیتال</p>
                         </div>
                         <div class="card-body">
+
+
                             <div class="owl-carousel owl-theme">
-                                <div class="item">
-                                    <a href="#">
-                                        <div class="card panel-custom">
-                                            <div class="card-body panel-body-custom">
-                                                <img src="img/1038130.jpg">
+                                @foreach ($products as $product)
+                                    <div class="item">
+                                        <a href="#">
+                                            <div class="card panel-custom">
+
+                                                <div class="card-body panel-body-custom">
+                                                    <img src="{{ asset('AdminAssets/product-image/' . $product->image) }}">
+                                                </div>
+                                                <div class="card-footer panel-footer-custom">
+                                                    <h4>{{ $product->name }}</h4>
+                                                    <p> {{ $product->price }} </p>
+                                                </div>
                                             </div>
-                                            <div class="card-footer panel-footer-custom">
-                                                <h4>لپ تاپ 15 اینچی ایسوس مدل VivoBook X541NA - D</h4>
-                                                <p>12300 هزاز تومان</p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="item">
-                                    <a href="#">
-                                        <div class="card panel-custom">
-                                            <div class="card-body panel-body-custom">
-                                                <img src="img/1038130.jpg">
-                                            </div>
-                                            <div class="card-footer panel-footer-custom">
-                                                <h4>لپ تاپ 15 اینچی ایسوس مدل VivoBook X541NA - D</h4>
-                                                <p>12300 هزاز تومان</p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="item">
-                                    <a href="#">
-                                        <div class="card panel-custom">
-                                            <div class="card-body panel-body-custom">
-                                                <img src="img/1038130.jpg">
-                                            </div>
-                                            <div class="card-footer panel-footer-custom">
-                                                <h4>لپ تاپ 15 اینچی ایسوس مدل VivoBook X541NA - D</h4>
-                                                <p>12300 هزاز تومان</p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="item">
-                                    <a href="#">
-                                        <div class="card panel-custom">
-                                            <div class="card-body panel-body-custom">
-                                                <img src="img/1038130.jpg">
-                                            </div>
-                                            <div class="card-footer panel-footer-custom">
-                                                <h4>لپ تاپ 15 اینچی ایسوس مدل VivoBook X541NA - D</h4>
-                                                <p>12300 هزاز تومان</p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="item">
-                                    <a href="#">
-                                        <div class="card panel-custom">
-                                            <div class="card-body panel-body-custom">
-                                                <img src="img/1038130.jpg">
-                                            </div>
-                                            <div class="card-footer panel-footer-custom">
-                                                <h4>لپ تاپ 15 اینچی ایسوس مدل VivoBook X541NA - D</h4>
-                                                <p>12300 هزاز تومان</p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="item">
-                                    <a href="#">
-                                        <div class="card panel-custom">
-                                            <div class="card-body panel-body-custom">
-                                                <img src="img/1038130.jpg">
-                                            </div>
-                                            <div class="card-footer panel-footer-custom">
-                                                <h4>لپ تاپ 15 اینچی ایسوس مدل VivoBook X541NA - D</h4>
-                                                <p>12300 هزاز تومان</p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="item">
-                                    <a href="#">
-                                        <div class="card panel-custom">
-                                            <div class="card-body panel-body-custom">
-                                                <img src="img/1038130.jpg">
-                                            </div>
-                                            <div class="card-footer panel-footer-custom">
-                                                <h4>لپ تاپ 15 اینچی ایسوس مدل VivoBook X541NA - D</h4>
-                                                <p>12300 هزاز تومان</p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="item">
-                                    <a href="#">
-                                        <div class="card panel-custom">
-                                            <div class="card-body panel-body-custom">
-                                                <img src="img/1038130.jpg">
-                                            </div>
-                                            <div class="card-footer panel-footer-custom">
-                                                <h4>لپ تاپ 15 اینچی ایسوس مدل VivoBook X541NA - D</h4>
-                                                <p>12300 هزاز تومان</p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
+                                        </a>
+                                    </div>
+                                @endforeach
                             </div>
+
+
                         </div>
                     </div>
                 </section>
