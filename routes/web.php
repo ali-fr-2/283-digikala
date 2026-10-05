@@ -61,9 +61,9 @@ Route::prefix('account')->group(function () {
 
     //slider
     Route::prefix('slider')->group(function () {
-        Route::get('create',[slider::class, 'Create'])->name('account.slider.create');
+        Route::get('create', [slider::class, 'Create'])->name('account.slider.create');
         Route::post('create', [slider::class, 'SliderImage'])->name('account.slider.Store');
+        Route::get('showslider', [slider::class, 'ShowSlider'])->name('account.slider.ShowSlider');
+        Route::DELETE('delete/{id}', [slider::class, 'Delete'])->name('account.slider.Delete');
     });
 });
-
-

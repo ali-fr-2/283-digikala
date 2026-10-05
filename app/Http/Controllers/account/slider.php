@@ -4,6 +4,7 @@ namespace App\Http\Controllers\account;
 
 use App\Http\Controllers\Controller;
 use App\Models\slidermodel;
+use Illuminate\Support\Facades\File;
 use Illuminate\Http\Request;
 
 class slider extends Controller
@@ -27,7 +28,30 @@ class slider extends Controller
             slidermodel::create($dataform);
 
             alert()->success('موفق!', 'عملیات با موفقیت انجام شد');
-            return redirect()->route('account.product.Products');
+            return redirect()->route('account.slider.ShowSlider');
         }
+    }
+
+    public function ShowSlider()
+    {
+        $sliders = slidermodel::all();
+        return view('Admin.slider.ShowSlider', compact('sliders'));
+    }
+
+    public function Delete($id)
+    {
+        $slider = slidermodel::find($id);
+
+        $previouspicture = public_path("AdminAssets/slider-image/" . $slider->image);
+
+        if (File::exists($previouspicture)) {
+            File::delete($previouspicture);
+        }
+
+        $slider->delete();
+
+
+        alert()->success('موفق!', 'محصول با موفقیت حذف شد');
+        return redirect()->route('account.slider.ShowSlider');
     }
 }

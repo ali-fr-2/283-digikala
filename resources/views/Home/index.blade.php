@@ -1,5 +1,14 @@
 @extends('home.layout.master')
 @section('content')
+
+    <style>
+        .carousel-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+
+        }
+    </style>
     <!--start top banner-->
     <a href="#">
         <div class="container-fluid mt-2 ">
@@ -14,28 +23,25 @@
             <div class="col-12">
                 <div id="myCarousel" class="carousel slide carousel-fade" data-ride="carousel1">
                     <ol class="carousel-indicators">
-                        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                        <li data-target="#myCarousel" data-slide-to="1"></li>
-                        <li data-target="#myCarousel" data-slide-to="2"></li>
-                        <li data-target="#myCarousel" data-slide-to="3"></li>
-                        <li data-target="#myCarousel" data-slide-to="4"></li>
+
+
+                        @foreach ($sliders as $slider)
+                            <li data-target="#myCarousel" data-slide-to="{{ $loop->index }}"
+                                class="{{ $loop->first ? 'active' : '' }}">
+                            </li>
+                        @endforeach
                     </ol>
                     <div class="carousel-inner rounded box_shadow">
-                        <div class="carousel-item active">
-                            <a href="#"><img src="img/1867.jpg" class="d-block w-100" alt=""></a>
-                        </div>
-                        <div class="carousel-item">
-                            <a href="#"><img src="img/1883.jpg" class="d-block w-100" alt=""></a>
-                        </div>
-                        <div class="carousel-item">
-                            <a href="#"><img src="img/1957.jpg" class="d-block w-100" alt=""></a>
-                        </div>
-                        <div class="carousel-item">
-                            <a href="#"><img src="img/2001.jpg" class="d-block w-100" alt=""></a>
-                        </div>
-                        <div class="carousel-item">
-                            <a href="#"><img src="img/2012.jpg" class="d-block w-100" alt=""></a>
-                        </div>
+                        @foreach ($sliders as $slider)
+
+
+                            <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
+                                <a href="{{ $slider->url }}"><img
+                                        src="{{ asset('AdminAssets/slider-image/' . $slider->image) }}" class="d-block w-100"
+                                        alt=""></a>
+                            </div>
+
+                        @endforeach
                     </div>
                     <a class="carousel-control-prev prev" href="#myCarousel" role="button" data-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>

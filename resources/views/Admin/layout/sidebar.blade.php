@@ -80,7 +80,7 @@
                         <a href="{{ route('account.slider.create') }}"> اضافه کردن اسلایدر </a>
                     </li>
                     <li>
-                        <a href=""> لیست اسلایدر ها</a>
+                        <a href="{{ route('account.slider.ShowSlider') }}"> لیست اسلایدر ها</a>
                     </li>
                 </ul>
             </li>
