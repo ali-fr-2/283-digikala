@@ -4,18 +4,23 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\account\ctegorycontroller;
 use App\Http\Controllers\account\productcontroller;
 use App\Http\Controllers\Home\HomeController;
+use App\Http\Controllers\account\slider;
+
 
 // Route::get('/', function () {
 //     return view('Home.index');
 // });
 
 Route::namespace('Home')->group(function () {
+
+
     Route::get('/', [HomeController::class, 'Home'])->name('Home');
 });
 
 Route::get('panel', function () {
     return view('Admin.index');
 });
+
 Route::prefix('account')->group(function () {
     Route::prefix('category')->group(function () {
         Route::get('create', [ctegorycontroller::class, 'CreateCategory'])->name('account.category.create');
@@ -53,4 +58,12 @@ Route::prefix('account')->group(function () {
         Route::get('Colors/{id}', [productcontroller::class, 'Colors'])->name('account.product.Colors');
         Route::DELETE('DeleteColor/{id}', [productcontroller::class, 'DeleteColor'])->name('account.product.DeleteColor');
     });
+
+    //slider
+    Route::prefix('slider')->group(function () {
+        Route::get('create',[slider::class, 'Create'])->name('account.slider.create');
+        Route::post('create', [slider::class, 'SliderImage'])->name('account.slider.Store');
+    });
 });
+
+
