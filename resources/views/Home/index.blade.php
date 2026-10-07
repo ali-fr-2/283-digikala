@@ -839,7 +839,7 @@
                             <div class="owl-carousel owl-theme">
                                 @foreach ($products as $product)
                                     <div class="item">
-                                        <a href="#">
+                                        <a href="{{ route('Home.Product', $product->id) }}">
                                             <div class="card panel-custom">
 
                                                 <div class="card-body panel-body-custom">

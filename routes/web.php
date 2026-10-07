@@ -15,6 +15,7 @@ Route::namespace('Home')->group(function () {
 
 
     Route::get('/', [HomeController::class, 'Home'])->name('Home');
+    Route::get('product/{id}', [HomeController::class, 'Product'])->name('Home.Product');
 });
 
 Route::get('panel', function () {
