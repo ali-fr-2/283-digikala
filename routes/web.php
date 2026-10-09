@@ -5,7 +5,7 @@ use App\Http\Controllers\account\ctegorycontroller;
 use App\Http\Controllers\account\productcontroller;
 use App\Http\Controllers\Home\HomeController;
 use App\Http\Controllers\account\slider;
-
+use App\Http\Controllers\Auth\Authcontroller;
 
 // Route::get('/', function () {
 //     return view('Home.index');
@@ -16,6 +16,11 @@ Route::namespace('Home')->group(function () {
 
     Route::get('/', [HomeController::class, 'Home'])->name('Home');
     Route::get('product/{id}', [HomeController::class, 'Product'])->name('Home.Product');
+
+    Route::namespace('Auth')->group(function () {
+        Route::get('register', [Authcontroller::class, 'FormRegister'])->name('Auth.Home.FormRegister');
+        Route::post('register', [Authcontroller::class, 'Register'])->name('Auth.Home.Register');
+    });
 });
 
 Route::get('panel', function () {
