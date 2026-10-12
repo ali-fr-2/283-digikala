@@ -17,9 +17,16 @@ Route::namespace('Home')->group(function () {
     Route::get('/', [HomeController::class, 'Home'])->name('Home');
     Route::get('product/{id}', [HomeController::class, 'Product'])->name('Home.Product');
 
+
     Route::namespace('Auth')->group(function () {
-        Route::get('register', [Authcontroller::class, 'FormRegister'])->name('Auth.Home.FormRegister');
-        Route::post('register', [Authcontroller::class, 'Register'])->name('Auth.Home.Register');
+
+        Route::get('register', [Authcontroller::class, 'FormRegister'])->name('Home.Auth.FormRegister');
+        Route::post('register', [Authcontroller::class, 'Register'])->name('Home.Auth.Register');
+
+        Route::get('login', [Authcontroller::class, 'FormLogin'])->name('Home.Auth.FormLogin');
+        Route::post('login', [Authcontroller::class, 'Login'])->name('Home.Auth.Login');
+
+        Route::get('showuser', [Authcontroller::class, 'ShowUser'])->name('Home.Auth.ShowUser');
     });
 });
 
