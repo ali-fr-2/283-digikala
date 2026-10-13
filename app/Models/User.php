@@ -23,6 +23,10 @@ class User extends Authenticatable
         'email',
         'password',
     ];
+    public function cartitems()
+    {
+        return $this->hasMany(Cartitem::class, 'user_id');
+    }
 
     /**
      * The attributes that should be hidden for serialization.

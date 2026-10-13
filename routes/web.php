@@ -27,6 +27,9 @@ Route::namespace('Home')->group(function () {
         Route::post('login', [Authcontroller::class, 'Login'])->name('Home.Auth.Login');
 
         Route::get('showuser', [Authcontroller::class, 'ShowUser'])->name('Home.Auth.ShowUser');
+
+        Route::post('addtocart/{id}',[Authcontroller::class , 'AddToCart'])->name('Home.Auth.AddToCart');
+
     });
 });
 

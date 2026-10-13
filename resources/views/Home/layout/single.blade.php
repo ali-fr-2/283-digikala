@@ -84,13 +84,15 @@
                             <ul class="list-inline">
                                 <li class="list-inline-item title">انتخاب رنگ :</li>
                                 @foreach ($productcolors as $productcolor)
-                                @if ($product->id==$productcolor->id_product )
-                                    <a href="">
-                                        <li class="list-inline-item box_check1">
-                                            <div  class="check1" style="background-color: {{ $productcolor->colors }}"><span>{{ $productcolor->name }}</span></div>
-                                        </li>
-                                    </a>
-                                @endif
+                                    @if ($product->id == $productcolor->id_product)
+                                        <a href="">
+                                            <li class="list-inline-item box_check1">
+                                                <div class="check1" style="background-color: {{ $productcolor->colors }}">
+                                                    <span>{{ $productcolor->name }}</span>
+                                                </div>
+                                            </li>
+                                        </a>
+                                    @endif
 
                                 @endforeach
                             </ul>
@@ -173,6 +175,13 @@
             </div>
         </div>
     </div>
+    <form action="{{ route('Home.Auth.AddToCart', $product->id) }}" method="POST" enctype="multipart/form-data">
+        @csrf
+        <div class="form-row mb-4">
+
+        </div>
+        <button type="submit" class="btn btn-primary">افزودن به سبد خرید </button>
+    </form>
     <!--end product -->
     <!--start product_feature-->
     <div class="container mt-3 product_feature">
@@ -290,6 +299,14 @@
                         </i></a></p>
             </div>
         </div>
+    </div>
+    <!--start jump-to-top-->
+    <div class="container-fluid text-center box_jump_top">
+        <a href="#" id="back2Top" class="d-block jump_top pt-2 pb-2">
+            <i class="fa-solid fa-circle-up"></i>
+
+            <span>برگشت به بالا</span>
+        </a>
     </div>
 
 @endsection
