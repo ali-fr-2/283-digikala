@@ -28,8 +28,11 @@ Route::namespace('Home')->group(function () {
 
         Route::get('showuser', [Authcontroller::class, 'ShowUser'])->name('Home.Auth.ShowUser');
 
-        Route::post('addtocart/{id}',[Authcontroller::class , 'AddToCart'])->name('Home.Auth.AddToCart');
+        Route::post('addtocart/{id}', [Authcontroller::class, 'AddToCart'])->name('Home.Auth.AddToCart');
 
+        Route::get('cart', [Authcontroller::class, 'Cart'])->name('Home.Auth.Cart');
+
+        Route::DELETE('delete/{id}', [Authcontroller::class, 'DeleteCartitem'])->name('Home.Auth.DeleteCartitem');
     });
 });
 
