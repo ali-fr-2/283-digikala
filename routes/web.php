@@ -6,6 +6,7 @@ use App\Http\Controllers\account\productcontroller;
 use App\Http\Controllers\Home\HomeController;
 use App\Http\Controllers\account\slider;
 use App\Http\Controllers\Auth\Authcontroller;
+use App\Http\Controllers\Auth\PaymentController;
 
 // Route::get('/', function () {
 //     return view('Home.index');
@@ -33,6 +34,14 @@ Route::namespace('Home')->group(function () {
         Route::get('cart', [Authcontroller::class, 'Cart'])->name('Home.Auth.Cart');
 
         Route::DELETE('delete/{id}', [Authcontroller::class, 'DeleteCartitem'])->name('Home.Auth.DeleteCartitem');
+
+        //payment
+
+        Route::post('payment', [PaymentController::class, 'Payment'])->name('Home.Auth.Payment');
+
+        Route::match(['get', 'post'], '/callback', [PaymentController::class, 'CallBack'])->name('Home.Auth.CallBack');
+
+        Route::match(['get', 'post'], '/success', [PaymentController::class, 'Success'])->name('Home.Auth.Success');
     });
 });
 
