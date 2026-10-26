@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Home;
 use App\Http\Controllers\Controller;
 use App\Models\order;
 use App\Models\order_item;
+use Evryn\LaravelToman\CallbackRequest;
 use Evryn\LaravelToman\Facades\Toman;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -83,34 +84,37 @@ class PaymentController extends Controller
         }
     }
 
-    // public function callback(CallbackRequest $request)
-    // {
-    //     $order = orders::where('transactionId', $request->transactionid())->first();
-    //     $payment = $request->amount($order->price)->verify();
+    // CallbackRequest
 
-    //     if ($payment->successful()) {
-    //         $referenceId = $payment->referenceId();
+    public function CallBack(CallbackRequest $request)
+    {
+        $order = Order::where('transactionId', $request->transactionid())->first();
+        $payment = $request->amount($order->price)->verify();
 
-    //         $order->update([
-    //             'order_status' => 1,
-    //             'referenceId' => $referenceId,
-    //         ]);
+        if ($payment->successful()) {
+            $referenceId = $payment->referenceId();
 
-    //         return redirect()->route('user.paymentSuccess');
-    //     }
+            $order->update([
+                'order_status' => 1,
+                'referenceId' => $referenceId,
+            ]);
 
-    //     if ($payment->alreadyVerified()) {
-    //     }
+            return redirect()->route('Home.PaymentSuccess');
+        }
 
-    //     if ($payment->failed()) {
-    //     }
-    // }
+        if ($payment->alreadyVerified()) {
+        }
 
-    // public function paymentSuccess()
-    // {
-    //     $user_id = Auth()->user()->id;
-    //     $order = orders::where('user_id', $user_id)->latest()->first();
+        if ($payment->failed()) {
+        }
+    }
 
-    //     return view('Auth.success', compact('order', 'user_id'));
-    // }
+    public function PaymentSuccess()
+    {
+        // $user_id = Auth()->user()->id;
+        $user_id = Auth::user()->id;
+        $order = Order::where('user_id', $user_id)->latest()->first();
+
+        return view('Auth.success', compact('order', 'user_id'));
+    }
 }

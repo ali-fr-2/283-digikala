@@ -44,7 +44,7 @@ Route::namespace('Home')->group(function () {
 
     Route::match(['get', 'post'], '/callback', [PaymentController::class, 'CallBack'])->name('Home.CallBack');
 
-    Route::match(['get', 'post'], '/success', [PaymentController::class, 'Success'])->name('Home.Success');
+    Route::match(['get', 'post'], '/success', [PaymentController::class, 'PaymentSuccess'])->name('Home.PaymentSuccess');
 });
 
 Route::get('panel', function () {
