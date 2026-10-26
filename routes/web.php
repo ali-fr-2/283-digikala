@@ -6,7 +6,9 @@ use App\Http\Controllers\account\productcontroller;
 use App\Http\Controllers\Home\HomeController;
 use App\Http\Controllers\account\slider;
 use App\Http\Controllers\Auth\Authcontroller;
-use App\Http\Controllers\Auth\PaymentController;
+
+use App\Http\Controllers\Home\CartController;
+use App\Http\Controllers\Home\PaymentController;
 
 // Route::get('/', function () {
 //     return view('Home.index');
@@ -29,20 +31,20 @@ Route::namespace('Home')->group(function () {
 
         Route::get('showuser', [Authcontroller::class, 'ShowUser'])->name('Home.Auth.ShowUser');
 
-        Route::post('addtocart/{id}', [Authcontroller::class, 'AddToCart'])->name('Home.Auth.AddToCart');
+        Route::post('addtocart/{id}', [CartController::class, 'AddToCart'])->name('Home.Auth.AddToCart');
 
-        Route::get('cart', [Authcontroller::class, 'Cart'])->name('Home.Auth.Cart');
+        Route::get('cart', [CartController::class, 'Cart'])->name('Home.Auth.Cart');
 
-        Route::DELETE('delete/{id}', [Authcontroller::class, 'DeleteCartitem'])->name('Home.Auth.DeleteCartitem');
-
-        //payment
-
-        Route::post('payment', [PaymentController::class, 'Payment'])->name('Home.Auth.Payment');
-
-        Route::match(['get', 'post'], '/callback', [PaymentController::class, 'CallBack'])->name('Home.Auth.CallBack');
-
-        Route::match(['get', 'post'], '/success', [PaymentController::class, 'Success'])->name('Home.Auth.Success');
+        Route::DELETE('delete/{id}', [CartController::class, 'DeleteCartitem'])->name('Home.Auth.DeleteCartitem');
     });
+
+    //payment
+
+    Route::post('payment', [PaymentController::class, 'Payment'])->name('Home.Payment');
+
+    Route::match(['get', 'post'], '/callback', [PaymentController::class, 'CallBack'])->name('Home.CallBack');
+
+    Route::match(['get', 'post'], '/success', [PaymentController::class, 'Success'])->name('Home.Success');
 });
 
 Route::get('panel', function () {
