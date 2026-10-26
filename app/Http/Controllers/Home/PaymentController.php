@@ -89,18 +89,23 @@ class PaymentController extends Controller
     public function CallBack(CallbackRequest $request)
     {
         $order = Order::where('transactionId', $request->transactionid())->first();
-        $payment = $request->amount($order->price)->verify();
+        if (!$order) {
+            abort(404);
+        } else {
+            $payment = $request->amount($order->price)->verify();
 
-        if ($payment->successful()) {
-            $referenceId = $payment->referenceId();
+            if ($payment->successful()) {
+                $referenceId = $payment->referenceId();
 
-            $order->update([
-                'order_status' => 1,
-                'referenceId' => $referenceId,
-            ]);
+                $order->update([
+                    'status' => 1,
+                    'referenceId' => $referenceId,
+                ]);
 
-            return redirect()->route('Home.PaymentSuccess');
+                return redirect()->route('Home.PaymentSuccess');
+            }
         }
+
 
         if ($payment->alreadyVerified()) {
         }
